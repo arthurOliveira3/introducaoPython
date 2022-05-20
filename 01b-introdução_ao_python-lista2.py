@@ -1,3 +1,4 @@
+from math import ceil
 # Lista de exercícios 2 - Estruturas (strings, listas, tuplas e dicionários)
 # Resolva os problemas utilizando apenas os métodos das estruturas de dados e funções nativas (embutidas).
 # Não utilize estruturas de decisão (if, elif, else) ou repetição(for e while).
@@ -25,6 +26,13 @@ def troca_caixa(texto):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
+    texto = texto.lower()
+    texto = texto.replace("a", "A")
+    texto = texto.replace("e", "E")
+    texto = texto.replace("i", "I")
+    texto = texto.replace("o", "O")
+    texto = texto.replace("u", "U")
+    return texto
 
 
 def imprime_mes_por_extenso(data):
@@ -37,6 +45,22 @@ def imprime_mes_por_extenso(data):
     Retorna:
         string: a data, no formato "99 de mês de 9999".
     """
+    dia, mes, ano = data.split("/")
+    mes = mes.replace("01", "janeiro")
+    mes = mes.replace("02", "fevereiro")
+    mes = mes.replace("03", "março")
+    mes = mes.replace("04", "abril")
+    mes = mes.replace("05", "maio")
+    mes = mes.replace("06", "junho")
+    mes = mes.replace("07", "julho")
+    mes = mes.replace("08", "agosto")
+    mes = mes.replace("09", "setembro")
+    mes = mes.replace("10", "outubro")
+    mes = mes.replace("11", "novembro")
+    mes = mes.replace("12", "dezembro")
+
+    return dia + " de " + mes + " de " + ano
+
 
 
 def encontra_caracter(texto, caracter_procurado):
@@ -50,6 +74,8 @@ def encontra_caracter(texto, caracter_procurado):
     Returns:
         int: a posição do caracter procurado no texto.
     """
+    posicao = texto.find(caracter_procurado)
+    return posicao
 
 
 def é_azarado(numero):
@@ -61,7 +87,10 @@ def é_azarado(numero):
     Retorna:
         bool: True ou False, baseado no enunciado.
     """
-
+    if numero[0] == numero[-1]:
+        return True
+    else:
+        return False
 
 def ordenamento_contrario(lista):
     """Inverta a ordem dos elementos da lista.
@@ -72,6 +101,8 @@ def ordenamento_contrario(lista):
     Retorna:
         list: uma lista com os elementos em ordem inversa.
     """
+    lista = lista[::-1]
+    return lista
 
 
 def maximo(lista):
@@ -83,6 +114,8 @@ def maximo(lista):
     Retorna:
         int: o maior elemento da lista.
     """
+    lista = max(lista)
+    return lista
 
 
 def minimo(lista):
@@ -94,10 +127,12 @@ def minimo(lista):
     Retorna:
         int: o menor elemento da lista.
     """
-
+    lista = min(lista)
+    return lista
 
 def maior_menor(lista):
     """Calcule o maior e o menor número da lista recebida.
+
 
     Argumento:
         lista (list): uma lista de elementos float;
@@ -105,6 +140,10 @@ def maior_menor(lista):
     Retorna:
         uma tupla com dois números inteiros, o maior e o menor da lista.
     """
+    minimo = min(lista)
+    maximo = max(lista)
+    minMax = (maximo, minimo)
+    return minMax
 
 
 def media_saltos_lista(saltos):
@@ -117,6 +156,8 @@ def media_saltos_lista(saltos):
     Retorna:
         float: a média dos saltos, de acordo com o enunciado.
     """
+    lista = sum(saltos) / len(saltos)
+    return ceil(lista)
 
 
 def contem(lista, item_procurado):
@@ -129,6 +170,7 @@ def contem(lista, item_procurado):
     Returns:
         bool: um valor booleano (True/False), de acordo com o enunciado.
     """
+    
 
 
 def conta(lista, item_procurado):
