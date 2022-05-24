@@ -1,4 +1,5 @@
 from math import ceil
+from posixpath import split
 # Lista de exercícios 2 - Estruturas (strings, listas, tuplas e dicionários)
 # Resolva os problemas utilizando apenas os métodos das estruturas de dados e funções nativas (embutidas).
 # Não utilize estruturas de decisão (if, elif, else) ou repetição(for e while).
@@ -14,6 +15,11 @@ def palindromo(texto):
     Retorna:
         bool: True ou False, dependendo dd texto ser palíndromo ou não.
     """
+    texto = texto.lower()
+    texto = texto.replace(" ", "")
+    texto = texto.replace(".", "")
+    texto = texto.replace("!", "")
+    return texto == texto[::-1]
 
 
 def troca_caixa(texto):
@@ -45,7 +51,7 @@ def imprime_mes_por_extenso(data):
     Retorna:
         string: a data, no formato "99 de mês de 9999".
     """
-    dia, mes, ano = data.split("/")
+    """    
     mes = mes.replace("01", "janeiro")
     mes = mes.replace("02", "fevereiro")
     mes = mes.replace("03", "março")
@@ -58,9 +64,12 @@ def imprime_mes_por_extenso(data):
     mes = mes.replace("10", "outubro")
     mes = mes.replace("11", "novembro")
     mes = mes.replace("12", "dezembro")
-
     return dia + " de " + mes + " de " + ano
-
+    """
+    dia, mes, ano = data.split("/")
+    meses = {1:"janeiro", 2:"fevereiro", 3:"março", 4:"abril", 5:"maio", 6:"junho", 7:"julho", 8:"agosto", 9:"setembro", 10:"outubro", 11:"novembro", 12:"dezembro"}
+    mesExtenso = meses[int(mes)]
+    return f"{dia} de {mesExtenso} de {ano}"
 
 
 def encontra_caracter(texto, caracter_procurado):
@@ -87,10 +96,9 @@ def é_azarado(numero):
     Retorna:
         bool: True ou False, baseado no enunciado.
     """
-    if numero[0] == numero[-1]:
-        return True
-    else:
-        return False
+    return numero[0] == numero[-1]
+
+
 
 def ordenamento_contrario(lista):
     """Inverta a ordem dos elementos da lista.
@@ -130,6 +138,7 @@ def minimo(lista):
     lista = min(lista)
     return lista
 
+
 def maior_menor(lista):
     """Calcule o maior e o menor número da lista recebida.
 
@@ -156,8 +165,7 @@ def media_saltos_lista(saltos):
     Retorna:
         float: a média dos saltos, de acordo com o enunciado.
     """
-    lista = sum(saltos) / len(saltos)
-    return ceil(lista)
+    return round((sum(saltos) - (max(saltos) + min(saltos))) / (len(saltos) - 2), 1)
 
 
 def contem(lista, item_procurado):
@@ -170,8 +178,8 @@ def contem(lista, item_procurado):
     Returns:
         bool: um valor booleano (True/False), de acordo com o enunciado.
     """
+    return item_procurado in lista
     
-
 
 def conta(lista, item_procurado):
     """Informa quantas ocorrências de um item existem numa lista.
@@ -183,6 +191,7 @@ def conta(lista, item_procurado):
     Returns:
         int: a quantidade de ocorrências do item procurado na lista.
     """
+    return lista.count(item_procurado)
 
 
 def mes_extenso(mes):
@@ -197,6 +206,8 @@ def mes_extenso(mes):
     Returns:
         string: a abreviatura do nome do mês, com 3 dígitos.
     """
+    meses = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
+    return meses[mes -1]
 
 
 def media_temperaturas(temperaturas):
@@ -208,6 +219,7 @@ def media_temperaturas(temperaturas):
     Retorna:
         float: a média das temperaturas.
     """
+    return sum(temperaturas) / len(temperaturas)
 
 
 def leet(texto):
@@ -222,7 +234,8 @@ def leet(texto):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
-
+    troca = {'a':'4','e':'3','g':'9','i':'1','s':'5','t':'7','o':'0'}
+    
 
 def apaga(texto, n):
     """
@@ -235,6 +248,9 @@ def apaga(texto, n):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
+
+    texto = texto.replace(texto[n], "")
+    return texto
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
