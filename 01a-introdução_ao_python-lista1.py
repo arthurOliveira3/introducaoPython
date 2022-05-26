@@ -1,5 +1,5 @@
-from math import ceil
 # Lista de exercícios 1 - variáveis e operadores
+from math import ceil
 
 def soma_dois_inteiros(a, b):
     """Recebe dois números inteiros, e retorna a sua soma.
@@ -11,7 +11,8 @@ def soma_dois_inteiros(a, b):
     Retorna:
         int: a soma dos dois valores.
     """
-    return a + b
+    sum = a + b
+    return sum
 
 
 def metro_para_milimetros(metros):
@@ -24,7 +25,8 @@ def metro_para_milimetros(metros):
     Retorna:
         float: o valor convertido para milimetros,
     """
-    return metros * 1000
+    valueMilimiters = metros * 1000
+    return valueMilimiters
 
 
 def tempo_para_percorrer_uma_distancia(distancia, velocidade):
@@ -38,8 +40,8 @@ def tempo_para_percorrer_uma_distancia(distancia, velocidade):
     Retorna:
         float: o tempo, em horas.
     """
-    tempo = round(distancia / velocidade, 2)
-    return tempo
+    time_to_distance = distancia / velocidade
+    return round(time_to_distance, 2)
 
 
 def aumento_salarial(salario, porcentagem):
@@ -53,8 +55,8 @@ def aumento_salarial(salario, porcentagem):
     Retorna:
         float: o novo salário, com duas casas decimais.
     """
-    novoSalario = round(salario + (salario * (porcentagem/100)), 2)
-    return novoSalario
+    salaryRaise = salario + ((salario * porcentagem) / 100)
+    return round(salaryRaise, 2)
 
 
 def preco_com_desconto(preco_original, percentual_desconto):
@@ -68,8 +70,8 @@ def preco_com_desconto(preco_original, percentual_desconto):
     Returns:
         float: o preço final, após o desconto, com duas casas decimais.
     """
-    precoDescontado = round(preco_original - (preco_original * (percentual_desconto/100)), 2)
-    return precoDescontado
+    priceDiscounted = preco_original - ((preco_original * percentual_desconto) / 100)
+    return round(priceDiscounted, 2)
 
 
 def dias_para_segundos(dias, horas, minutos, segundos):
@@ -85,10 +87,10 @@ def dias_para_segundos(dias, horas, minutos, segundos):
     Retorna:
         int: a quantidade de segundos equivalente aos valores de dias, horas, minutos e segundos.
     """
-    diasSegundos = dias * 24 * 60 * 60
-    horasParaSegundos = horas * 60 * 60
-    minutosParaSegundos = minutos * 60
-    return segundos + diasSegundos + horasParaSegundos + minutosParaSegundos
+    daysToSeconds = dias * 24 * 60 * 60
+    hoursToSeconds = horas * 60 * 60
+    minutesToSeconds = minutos * 60
+    return daysToSeconds + hoursToSeconds + minutesToSeconds + segundos
 
 
 def celsius_para_fahrenheit(celsius):
@@ -101,9 +103,9 @@ def celsius_para_fahrenheit(celsius):
     Retorna:
         float: a temperatura em graus Farenheit.
     """
-    fahrenheit = celsius * (9/5) + 32
-    return fahrenheit
-
+    celsiusToFahrenheit = celsius * (9 / 5) + 32
+    return celsiusToFahrenheit
+ 
 
 def fahrenheit_para_celsius(farenheit):
     """Recebe uma temperatura em graus Fahrenheit, e retorna a temperatura
@@ -115,8 +117,8 @@ def fahrenheit_para_celsius(farenheit):
     Retorna:
         float: a temperatura em graus Celsius.
     """
-    celsius = round((farenheit - 32) / (9/5), 2)
-    return celsius
+    fahrenheitToCelsius = (farenheit - 32) / (9 / 5)
+    return round(fahrenheitToCelsius, 2)
 
 
 def preco_aluguel_carro(dias, km):
@@ -132,9 +134,9 @@ def preco_aluguel_carro(dias, km):
         float: o preço do aluguel do carro, com 2 casas decimais,
                 conforme a fórmula dada no enunciado.
     """
-    valorPagar = dias * 60 + km * 0.15
-    return valorPagar
-    
+    priceDays = dias * 60
+    priceKM = km * 0.15
+    return round(priceDays + priceKM, 2)
 
 
 def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
@@ -149,8 +151,9 @@ def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
     Retorna:
         int: a quantidade de dias que a pessoa perdeu por fumar.
     """
-    diasPerdidos = int(cigarros_fumados_por_dia * anos_fumando * 365 * 10 / 60 / 24)
-    return diasPerdidos
+    daysSmoking = anos_fumando * 365
+    lostDays = cigarros_fumados_por_dia * daysSmoking * 10 / 60 / 24
+    return int(lostDays)
 
 
 def dois_elevado_a_dez_mil():
@@ -160,8 +163,8 @@ def dois_elevado_a_dez_mil():
     Retorna:
         int: a quantidade de algarismos que o resultado contém.
     """
-    algarismos = len(str(2**10000))
-    return algarismos
+    number = 2 ** 10000
+    return len(str(number))
 
 
 def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
@@ -181,13 +184,9 @@ def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
     Returns:
         bool: True ou False, dependendo da média ser maior ou igual a 7 ou não.
     """
-    parcial1 = p1 * 0.7 + ep1 * 0.3 
-    parcial2 = p2 * 0.7 + ep2 * 0.3
-    media = (parcial1 + parcial2) / 2
-    if media >= 7:
-        return True
-    else:
-        return False
+    average1 = p1 * 7 / 10 + (ep1 * 3 / 10)
+    average2 = p2 * 7 / 10 + (ep2 * 3 / 10)
+    return average1 + average2 / 2 >= 7
 
 
 def salario(valor_hora, horas_mensais):
@@ -206,9 +205,9 @@ def salario(valor_hora, horas_mensais):
     Returns:
         float: o salário líquido, após todos os descontos.
     """
-    salarioBruto = valor_hora * horas_mensais
-    salarioLiquido = salarioBruto - salarioBruto * 0.24
-    return salarioLiquido
+    bruteSalary = valor_hora * horas_mensais
+    taxes = bruteSalary * 0.24
+    return bruteSalary - taxes
 
 
 def duzias(ovos):
@@ -223,8 +222,8 @@ def duzias(ovos):
         int: a quantidade de dúzias correspondente à quantidade de ovos,
             arredondado pra cima.
     """
-    duzias = ceil(ovos / 12)
-    return duzias
+    dozens = round(ovos / 12)
+    return dozens
 
 
 def tinta(metros_pintar):
@@ -239,8 +238,9 @@ def tinta(metros_pintar):
     Retorna:
         int: a quantidade de latas de tinta, arredondado pra cima.
     """
-    latas = ceil(metros_pintar / 3 / 18)
-    return latas
+    metersToCans = 18 * 3
+    metersToPaint = metros_pintar / metersToCans
+    return ceil(metersToPaint)
 
 
 def decompor_numero(n):
@@ -254,13 +254,12 @@ def decompor_numero(n):
     Retorna:
         tupla de inteiros, com as centenas, dezenas e unidades do numero.
     """
-    centenas = int(n / 100)
-    dezenas = int((n - (centenas * 100)) / 10)
-    unidades = n - centenas * 100 - dezenas * 10
-    tupla = (centenas, dezenas, unidades)
-    return tupla
+    hundreds = int(n / 100)
+    dozens = int((n - (hundreds * 100)) / 10) 
+    unities = n - (hundreds * 100) - (dozens * 10)
+    return hundreds, dozens, unities
 
-
+    
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
 acertos = 0

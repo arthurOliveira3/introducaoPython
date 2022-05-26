@@ -1,9 +1,5 @@
 # Lista de exercícios - Condições
 
-
-from cmath import sqrt
-
-
 def maior3(a, b, c):
     """Recebe três valores, e retorna o maior dos três.
 
@@ -15,12 +11,6 @@ def maior3(a, b, c):
     Retorna:
         float: o maior entre os três valores.
     """
-    if a > b and a > c:
-        return a
-    if b > a and b > c:
-        return b
-    else:
-        return c
 
 
 def menor3(a, b, c):
@@ -34,12 +24,6 @@ def menor3(a, b, c):
     Retorna:
         float: o menor entre os três valores.
     """
-    if a < b and a < c:
-        return a
-    if b < a and b < c:
-        return b
-    else:
-        return c    
 
 
 def testa_lados(a, b, c):
@@ -56,16 +40,7 @@ def testa_lados(a, b, c):
         string: um texto indicando o resultado,
                 conforme aparece nos testes no final desse arquivo.
     """
-    if a < b + c and b < a + c and c < a + b:
-        if a == b == c:
-            return "Triângulo equilátero"
-        if a == b or b == c or a == c:
-            return "Triângulo isósceles"
-        else:
-            return "Triângulo escaleno"
-    else:
-        return "Não forma um triângulo"
-
+ 
 
 def ano_bissexto(ano):
     """Determine se um ano é bissexto ou não.
@@ -77,10 +52,6 @@ def ano_bissexto(ano):
         bool: True ou False (verdadeiro ou falso), caso a ano seja ou não bissexto.
 
     """
-    if ano % 100 == 0 and ano % 400 == 0 or ano % 4 == 0 and ano % 100 != 0:
-        return True
-    else:
-        return False
 
 
 def maior_dia_do_mes(mes, ano):
@@ -97,16 +68,6 @@ def maior_dia_do_mes(mes, ano):
     Retorna:
         int: um inteiro indicando o último dia válido para aquele mês e ano.
     """
-    meses = {"1":31, "2":28, "3":31, "4":30, "5":31, "6":30, "7":31, "8":31, "9":30, "10":31, "11":30, "12":31}
-    if ano % 100 == 0 and ano % 400 == 0 or ano % 4 == 0 and ano % 100 != 0:
-        if mes == 2:
-            return 29
-        else:
-            return meses[str(mes)]
-    else:
-        return meses[str(mes)]
-
-
 
 
 def data_valida(data):
@@ -121,34 +82,7 @@ def data_valida(data):
     Retorna:
         bool: True ou False, indicando se a datá é válida ou não.
     """
-    dia, mes, ano = data.split("/")
-    dia = int(dia)
-    mes = int(mes)
-    ano = int(ano)
-
-    if dia > 31 or dia < 1 or mes > 12 or mes < 1 or ano == 0:
-        return False
-    elif  ano % 100 == 0 and ano % 400 == 0 or ano % 4 == 0 and ano % 100 != 0:
-        if mes == 2 and dia <= 29:
-            return True
-        else:
-            return False
-    else:
-        if mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12:
-            if dia <= 31:
-                return True
-            else:
-                return False
-        elif mes == 4 or mes == 6 or mes == 9 or mes == 11:
-            if dia <= 30:
-                return True
-            else: 
-                return False
-        elif mes == 2 and dia <= 28:
-            return True
-        else:
-            return False
-            
+          
 
 def baskara(a, b, c):
     """Calcule as raízes de uma equação do segundo grau, na forma
@@ -171,19 +105,6 @@ def baskara(a, b, c):
         tupla de floats: uma tupla, contando os valores das raízes, sendo
         uma raiz, duas raízes ou uma tupla vazia caso não existam raízes.
     """
-    if a == 0:
-        return (-c / b, )
-    else:
-        delta = (b ** 2) - (4 * a * c)
-        if delta < 0:
-            return ()
-        elif delta == 0:
-            raiz = (-b + (delta * 0.5)) / (2 * a)
-            return (raiz, )
-        else:
-            raiz1 = (-b + (delta ** 0.5)) / (2 * a )
-            raiz2 = (-b - (delta ** 0.5)) / (2 * a )
-            return (raiz1, raiz2)
 
 
 def acrescimo_nota_bb(nota_sozinho, nota_com_ajuda):
@@ -199,11 +120,6 @@ def acrescimo_nota_bb(nota_sozinho, nota_com_ajuda):
     Retorna:
         float: o acréscimo na nota obtido pelo aluno que ajudou seu colega.
     """
-    if nota_com_ajuda > nota_sozinho:
-        difference = nota_com_ajuda - nota_sozinho
-        return round(difference / 4, 1)
-    else:
-        return nota_com_ajuda - nota_com_ajuda
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
