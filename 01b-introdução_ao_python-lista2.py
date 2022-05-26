@@ -248,9 +248,7 @@ def apaga(texto, n):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
-
-    texto = texto.replace(texto[n], "")
-    return texto
+    return texto[:n] + texto[n + 1:]
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
