@@ -235,11 +235,27 @@ def leet(texto):
         string: o texto convertido, conforme o enunciado.
     """
     troca = {'a':'4','e':'3','g':'9','i':'1','s':'5','t':'7','o':'0'}
-    
+    texto = texto.replace('a', str(troca['a']))
+    texto = texto.replace('A', str(troca['a']))    
+    texto = texto.replace('e', str(troca['e']))
+    texto = texto.replace('E', str(troca['e']))
+    texto = texto.replace('g', str(troca['g']))
+    texto = texto.replace('G', str(troca['g']))
+    texto = texto.replace('i', str(troca['i']))
+    texto = texto.replace('I', str(troca['i']))
+    texto = texto.replace('s', str(troca['s']))
+    texto = texto.replace('S', str(troca['s'])) 
+    texto = texto.replace('t', str(troca['t']))
+    texto = texto.replace('T', str(troca['t']))
+    texto = texto.replace('o', str(troca['o']))
+    texto = texto.replace('O', str(troca['o']))
+    return texto
+
+
 
 def apaga(texto, n):
     """
-    Seja uma string texto e um inteiro n,
+    Seja uma string texto e um inteiro n, 
     retorna uma nova string sem a posição n.
 
     Argumento:
@@ -386,3 +402,4 @@ if __name__ == "__main__":
     )
     if total == acertos:
         print("Parabéns, seu programa rodou sem falhas!")
+

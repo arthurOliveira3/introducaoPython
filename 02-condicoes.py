@@ -1,6 +1,9 @@
 # Lista de exercícios - Condições
 
 
+from cmath import sqrt
+
+
 def maior3(a, b, c):
     """Recebe três valores, e retorna o maior dos três.
 
@@ -147,7 +150,6 @@ def data_valida(data):
             return False
             
 
-
 def baskara(a, b, c):
     """Calcule as raízes de uma equação do segundo grau, na forma
     ax2 + bx + c. A função recebe a, b e c e faz as consistências,
@@ -169,7 +171,19 @@ def baskara(a, b, c):
         tupla de floats: uma tupla, contando os valores das raízes, sendo
         uma raiz, duas raízes ou uma tupla vazia caso não existam raízes.
     """
-    
+    if a == 0:
+        return (-c / b, )
+    else:
+        delta = (b ** 2) - (4 * a * c)
+        if delta < 0:
+            return ()
+        elif delta == 0:
+            raiz = (-b + (delta * 0.5)) / (2 * a)
+            return (raiz, )
+        else:
+            raiz1 = (-b + (delta ** 0.5)) / (2 * a )
+            raiz2 = (-b - (delta ** 0.5)) / (2 * a )
+            return (raiz1, raiz2)
 
 
 def acrescimo_nota_bb(nota_sozinho, nota_com_ajuda):
@@ -185,6 +199,11 @@ def acrescimo_nota_bb(nota_sozinho, nota_com_ajuda):
     Retorna:
         float: o acréscimo na nota obtido pelo aluno que ajudou seu colega.
     """
+    if nota_com_ajuda > nota_sozinho:
+        difference = nota_com_ajuda - nota_sozinho
+        return round(difference / 4, 1)
+    else:
+        return nota_com_ajuda - nota_com_ajuda
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
