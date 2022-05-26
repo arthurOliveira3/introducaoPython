@@ -2,6 +2,9 @@
 # Resolva os problemas utilizando apenas os métodos das estruturas de dados e funções nativas (embutidas).
 # Não utilize estruturas de decisão (if, elif, else) ou repetição(for e while).
 
+from hashlib import new
+
+
 def palindromo(texto):
     """Faça uma função que verifique se uma texto é palíndromo,
         isto é, se é igual quando lido de trás pra frente.
@@ -211,7 +214,8 @@ def mes_extenso(mes):
     Returns:
         string: a abreviatura do nome do mês, com 3 dígitos.
     """
-    
+    months = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
+    return months[mes - 1]
 
 
 def media_temperaturas(temperaturas):
@@ -223,6 +227,8 @@ def media_temperaturas(temperaturas):
     Retorna:
         float: a média das temperaturas.
     """
+    average = sum(temperaturas) / len(temperaturas)
+    return average
 
 
 def leet(texto):
@@ -237,7 +243,10 @@ def leet(texto):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
-
+    troca = {'a':'4','e':'3','g':'9','i':'1','s':'5','t':'7','o':'0'}
+    index = texto.find(troca["a"])
+    return index
+    
 
 def apaga(texto, n):
     """
@@ -250,6 +259,8 @@ def apaga(texto, n):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
+    index = texto[n]
+    return texto.replace(index, "", 1)
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
