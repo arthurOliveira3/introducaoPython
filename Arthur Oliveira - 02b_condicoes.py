@@ -176,6 +176,16 @@ def converte_hora_24_para_12(horario):
     Retorna:
         string: horario no formato 12 horas (am/pm)
     """
+    hora, minutos = horario.split(":")
+    if hora == "00":
+        hora = "12"
+        return f"{hora}:{minutos} am"
+    elif int(hora) <= 11:
+        return f"{int(hora)}:{minutos} am"
+    elif hora == "12":
+        return f"{int(hora)}:{minutos} pm"
+    else:
+        return f"{int(hora) - 12}:{minutos} pm"
 
 
 def converte_hora_12_para_24(horario):
@@ -192,6 +202,21 @@ def converte_hora_12_para_24(horario):
     Retorna:
         string: horario no formato 24 horas
     """
+    horario, periodo = horario.split(" ")
+    hora, minutos = horario.split(":")
+    if periodo == "am":
+        if hora == "12":
+            hora = "00"
+            return f"{hora}:{minutos}"
+        elif int(hora) <= 9:
+            return f"0{hora}:{minutos}"
+        else:
+            return f"{hora}:{minutos}"
+    else:
+        if hora == "12":
+            return f"{hora}:{minutos}"
+        else:
+            return f"{int(hora) + 12}:{minutos}"
 
 
 def conta_combustivel(qtde_litros, tipo_combustivel, tipo_pagamento):
@@ -214,6 +239,30 @@ def conta_combustivel(qtde_litros, tipo_combustivel, tipo_pagamento):
     Returns:
         float: o valor a ser pago, com duas casas decimais
     """
+    alcool = 3.159
+    gasolina = 3.739
+    diesel = 3.090
+    if tipo_combustivel == "a":
+        total = qtde_litros * alcool
+        desconto = total * 0.1
+        if tipo_pagamento == "v" or tipo_pagamento == "d":
+            return round(total - desconto, 2)
+        else:
+            return round(total, 2)
+    elif tipo_combustivel == "g":
+        total = qtde_litros * gasolina
+        desconto = total * 0.1
+        if tipo_pagamento == "v" or tipo_pagamento == "d":
+            return round(total - desconto, 2)
+        else:
+            return round(total, 2)
+    else:
+        total = qtde_litros * diesel
+        desconto = total * 0.1
+        if tipo_pagamento == "v" or tipo_pagamento == "d":
+            return round(total - desconto, 2)
+        else:
+            return round(total, 2)
 
 
 def comprar_frutas(morango=0, uva=0):
@@ -237,7 +286,31 @@ def comprar_frutas(morango=0, uva=0):
     Retorna:
         float: o preço a pagar, com 2 casas decimais
     """
-
+    if morango <= 5 and uva <=5:
+        total = round(morango * 2.5 + uva * 1.8, 2)
+        if morango + uva > 8 or total > 25:
+            desconto = total * 0.1
+            return total - desconto
+        else:
+            return total
+    elif morango <= 5:
+        total = round(morango * 2.5 + uva * 1.5, 2)
+        if morango + uva > 8 or total > 25:
+            desconto = total * 0.1
+            return total - desconto
+        else:
+            return total
+    elif uva <=5:
+        total = round(morango * 2.2 + uva * 1.8, 2)
+        if morango + uva > 8 or total > 25:
+            desconto = total * 0.1
+            return total - desconto
+        else:
+            return total
+    else:
+        total = round(morango * 2.2 + uva * 1.5, 2)
+        desconto = total * 0.1
+        return total - desconto
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
 acertos = 0
@@ -342,7 +415,7 @@ def main():
     test(converte_hora_24_para_12("23:00"), "11:00 pm")
     test(converte_hora_24_para_12("23:59"), "11:59 pm")
 
-    # print("Converte hora 12 para 24:")
+    print("Converte hora 12 para 24:")
     # # 1- Use “00:00” para representar a meia-noite.
     test(converte_hora_12_para_24("12:00 am"), "00:00")
     test(converte_hora_12_para_24("12:01 am"), "00:01")
