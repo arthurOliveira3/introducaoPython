@@ -16,6 +16,10 @@ def soma_das_temperaturas(lista):
     Retorna:
         float: a soma_das_temperaturas dos elementos da lista.
     """
+    soma = 0
+    for item in lista:
+        soma += item
+    return soma
 
 
 def quantidade_de_impares(valor_inicial, valor_final):
@@ -29,6 +33,11 @@ def quantidade_de_impares(valor_inicial, valor_final):
     Retorna:
         int: a quantidade de números ímpares dentro do intervalo dado.
     """
+    listaImpares = []
+    for item in range(valor_inicial + 1, valor_final):
+        if item % 2 != 0:
+            listaImpares.append(item)
+    return len(listaImpares)
 
 
 def soma_das_temperaturas_dos_inteiros(valor1, valor2):
@@ -44,6 +53,15 @@ def soma_das_temperaturas_dos_inteiros(valor1, valor2):
     Retorna:
         float: a soma_das_temperaturas dos valores dentro do intervalo dado.
     """
+    somaTemperaturas = 0
+    if valor1 < valor2:
+        for item in range(valor1 + 1, valor2):
+            somaTemperaturas += item
+        return somaTemperaturas
+    else:
+        for item in range(valor2 + 1, valor1):
+            somaTemperaturas += item
+        return somaTemperaturas
 
 
 def serie(n):
@@ -56,8 +74,11 @@ def serie(n):
     Retorna:
         float: a soma_das_temperaturas dos valores da série,
         segundo a fórmula e o valor de n informados.
-
     """
+    soma = 0
+    for item in range(1 , n + 1):
+        soma += 1/item
+    return round(soma, 2)
 
 
 def ordenamento_contrario(lista):
@@ -69,6 +90,10 @@ def ordenamento_contrario(lista):
     Retorna:
         list: uma lista com os elementos a ordem invertida.
     """
+    novaLista = []
+    for item in lista[::-1]:
+        novaLista.append(item)
+    return novaLista
 
 
 def intercalamento_listas(lista1, lista2):
