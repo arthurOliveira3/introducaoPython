@@ -110,6 +110,13 @@ def intercalamento_listas(lista1, lista2):
     Retorna:
         list: uma lista com os elementos intercalados das duas listas recebidas.
     """
+    novaLista = []
+    i = 0
+    for item in lista1:
+        novaLista.append(item)
+        novaLista.append(lista2[i])
+        i += 1
+    return novaLista
 
 
 def im_pares(lista):
@@ -122,6 +129,14 @@ def im_pares(lista):
         uma tupla com duas listas de inteiros sendo a primeira uma lista com os pares
         e a segunda uma lista com os ímpares.
     """
+    pares = []
+    impares = []
+    for item in lista:
+        if item % 2 == 0:
+            pares.append(item)
+        else:
+            impares.append(item)
+    return (pares, impares, )
 
 
 def maior_menor(lista):

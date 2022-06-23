@@ -1,5 +1,7 @@
-from math import ceil
 # Lista de exercícios 1 - variáveis e operadores
+
+from math import ceil
+
 
 def soma_dois_inteiros(a, b):
     """Recebe dois números inteiros, e retorna a sua soma.
@@ -134,7 +136,6 @@ def preco_aluguel_carro(dias, km):
     """
     valorPagar = dias * 60 + km * 0.15
     return valorPagar
-    
 
 
 def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
@@ -259,7 +260,6 @@ def decompor_numero(n):
     unidades = n - centenas * 100 - dezenas * 10
     tupla = (centenas, dezenas, unidades)
     return tupla
-
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!

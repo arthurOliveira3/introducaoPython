@@ -20,7 +20,6 @@ def situacao_aluno(nota1, nota2, nota3, faltas, aulas_ministradas):
     """
     media = (nota1 + nota2 + nota3) / 3
     porcentagemFaltas = faltas * 100 / aulas_ministradas
-
     if porcentagemFaltas > 25:
         return "RF"
     elif media < 7.0:
@@ -311,6 +310,7 @@ def comprar_frutas(morango=0, uva=0):
         total = round(morango * 2.2 + uva * 1.5, 2)
         desconto = total * 0.1
         return total - desconto
+
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
 acertos = 0

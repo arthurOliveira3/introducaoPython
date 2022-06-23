@@ -1,8 +1,9 @@
-from math import ceil
-from posixpath import split
 # Lista de exercícios 2 - Estruturas (strings, listas, tuplas e dicionários)
 # Resolva os problemas utilizando apenas os métodos das estruturas de dados e funções nativas (embutidas).
 # Não utilize estruturas de decisão (if, elif, else) ou repetição(for e while).
+
+from math import ceil
+from posixpath import split
 
 
 def palindromo(texto):
@@ -97,7 +98,6 @@ def é_azarado(numero):
         bool: True ou False, baseado no enunciado.
     """
     return numero[0] == numero[-1]
-
 
 
 def ordenamento_contrario(lista):

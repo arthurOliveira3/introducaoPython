@@ -1,9 +1,6 @@
 # Lista de exercícios - Condições
 
 
-from cmath import sqrt
-
-
 def maior3(a, b, c):
     """Recebe três valores, e retorna o maior dos três.
 
@@ -17,7 +14,7 @@ def maior3(a, b, c):
     """
     if a > b and a > c:
         return a
-    if b > a and b > c:
+    elif b > c:
         return b
     else:
         return c
@@ -36,7 +33,7 @@ def menor3(a, b, c):
     """
     if a < b and a < c:
         return a
-    if b < a and b < c:
+    if b < c:
         return b
     else:
         return c    
@@ -105,8 +102,6 @@ def maior_dia_do_mes(mes, ano):
             return meses[str(mes)]
     else:
         return meses[str(mes)]
-
-
 
 
 def data_valida(data):
