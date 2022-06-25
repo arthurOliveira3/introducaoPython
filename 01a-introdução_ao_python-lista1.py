@@ -185,10 +185,7 @@ def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
     parcial1 = p1 * 0.7 + ep1 * 0.3 
     parcial2 = p2 * 0.7 + ep2 * 0.3
     media = (parcial1 + parcial2) / 2
-    if media >= 7:
-        return True
-    else:
-        return False
+    return media >= 7
 
 
 def salario(valor_hora, horas_mensais):

@@ -2,9 +2,6 @@
 # Resolva os problemas utilizando apenas os métodos das estruturas de dados e funções nativas (embutidas).
 # Não utilize estruturas de decisão (if, elif, else) ou repetição(for e while).
 
-from math import ceil
-from posixpath import split
-
 
 def palindromo(texto):
     """Faça uma função que verifique se uma texto é palíndromo,
@@ -52,21 +49,6 @@ def imprime_mes_por_extenso(data):
     Retorna:
         string: a data, no formato "99 de mês de 9999".
     """
-    """    
-    mes = mes.replace("01", "janeiro")
-    mes = mes.replace("02", "fevereiro")
-    mes = mes.replace("03", "março")
-    mes = mes.replace("04", "abril")
-    mes = mes.replace("05", "maio")
-    mes = mes.replace("06", "junho")
-    mes = mes.replace("07", "julho")
-    mes = mes.replace("08", "agosto")
-    mes = mes.replace("09", "setembro")
-    mes = mes.replace("10", "outubro")
-    mes = mes.replace("11", "novembro")
-    mes = mes.replace("12", "dezembro")
-    return dia + " de " + mes + " de " + ano
-    """
     dia, mes, ano = data.split("/")
     meses = {1:"janeiro", 2:"fevereiro", 3:"março", 4:"abril", 5:"maio", 6:"junho", 7:"julho", 8:"agosto", 9:"setembro", 10:"outubro", 11:"novembro", 12:"dezembro"}
     mesExtenso = meses[int(mes)]
@@ -109,8 +91,7 @@ def ordenamento_contrario(lista):
     Retorna:
         list: uma lista com os elementos em ordem inversa.
     """
-    lista = lista[::-1]
-    return lista
+    return lista[::-1]
 
 
 def maximo(lista):
@@ -122,8 +103,7 @@ def maximo(lista):
     Retorna:
         int: o maior elemento da lista.
     """
-    lista = max(lista)
-    return lista
+    return max(lista)
 
 
 def minimo(lista):
@@ -135,8 +115,7 @@ def minimo(lista):
     Retorna:
         int: o menor elemento da lista.
     """
-    lista = min(lista)
-    return lista
+    return min(lista)
 
 
 def maior_menor(lista):
@@ -151,8 +130,7 @@ def maior_menor(lista):
     """
     minimo = min(lista)
     maximo = max(lista)
-    minMax = (maximo, minimo)
-    return minMax
+    return (maximo, minimo)
 
 
 def media_saltos_lista(saltos):
@@ -234,23 +212,21 @@ def leet(texto):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
-    troca = {'a':'4','e':'3','g':'9','i':'1','s':'5','t':'7','o':'0'}
-    texto = texto.replace('a', str(troca['a']))
-    texto = texto.replace('A', str(troca['a']))    
-    texto = texto.replace('e', str(troca['e']))
-    texto = texto.replace('E', str(troca['e']))
-    texto = texto.replace('g', str(troca['g']))
-    texto = texto.replace('G', str(troca['g']))
-    texto = texto.replace('i', str(troca['i']))
-    texto = texto.replace('I', str(troca['i']))
-    texto = texto.replace('s', str(troca['s']))
-    texto = texto.replace('S', str(troca['s'])) 
-    texto = texto.replace('t', str(troca['t']))
-    texto = texto.replace('T', str(troca['t']))
-    texto = texto.replace('o', str(troca['o']))
-    texto = texto.replace('O', str(troca['o']))
+    texto = texto.replace('a', '4')
+    texto = texto.replace('A', '4')   
+    texto = texto.replace('e', '3')
+    texto = texto.replace('E', '3')
+    texto = texto.replace('g', 'g')
+    texto = texto.replace('G', 'g')
+    texto = texto.replace('i', '1')
+    texto = texto.replace('I', '1')
+    texto = texto.replace('s', '5')
+    texto = texto.replace('S', '5')
+    texto = texto.replace('t', '7')
+    texto = texto.replace('T', '7')
+    texto = texto.replace('o', '0')
+    texto = texto.replace('O', '0')
     return texto
-
 
 
 def apaga(texto, n):
