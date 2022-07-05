@@ -6,11 +6,7 @@ def soma_dobro(num1, num2):
     Dados dois números inteiros retorna sua soma,
     porém se os números forem iguais retorna o dobro da soma.
     """
-    soma = num1 + num2
-    if num1 == num2:
-        return soma * 2
-    else:
-        return soma
+    return (num1 + num2) * 2 if num1 == num2 else num1 + num2
 
 
 def soma_dez(num1, num2):
@@ -29,7 +25,7 @@ def troca_primeira_e_ultima(texto):
     if len(texto) <= 1:
         return texto
     else:
-        return texto[-1] + texto[1:-1] + texto[0]
+        return f'{texto[-1]}{texto[1:-1]}{texto[0]}'
 
 
 def nove_na_frente(lista):
@@ -43,8 +39,7 @@ def metade_inicial(texto):
     """
     Seja uma string, retorna a primeira metade da string.
     """
-    metade = int(len(texto) / 2)
-    return texto[:metade]
+    return texto[:len(texto) // 2]
 
 
 def pontas_removidas(texto):
@@ -60,7 +55,7 @@ def dois_giros_a_esquerda(texto):
     Rodar à esquerda uma string em duas posições.
     A string possui pelo menos 2 caracteres.
     """
-    return texto[2:] + texto[:2]
+    return f"{texto[2:]}{texto[:2]}"
 
 
 def igual_inicio_fim(lista):
@@ -85,10 +80,9 @@ def pontas_do_nome(nome):
     maiúsculas.
     "Marco André Lopes Mendes" -> "MARCO MENDES"
     """
-    lista = nome.split(" ")
-    primeiroNome = lista[0].upper()
-    sobrenome = lista[-1].upper()
-    return primeiroNome + " " + sobrenome
+    nome = nome.upper()
+    listaNomes = nome.split(" ")
+    return f'{listaNomes[0]} {listaNomes[-1]}'
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
