@@ -6,8 +6,7 @@
 # Utilizar "for item in lista" sempre que possível.
 # Utilizar "for i, item in enumerate(item) sempre que possível.
 
-
-from httplib2 import ProxiesUnavailableError
+from turtle import pen
 
 
 def soma_das_temperaturas(lista):
@@ -271,15 +270,24 @@ def fibonacci(n):
         uma lista de elementos inteiros correspondendo aos n primeiros elementos da série
         de Fibonacci.
     """
+    listaFibo = [1]
+    ultimo = 1
+    penultimo = 0
+    for i in range(n - 1):
+        soma = ultimo + penultimo
+        listaFibo.append(soma)
+        penultimo = ultimo
+        ultimo = soma
+    return listaFibo
 
 
 def altera_salarios(salarios):
     """Calcule o aumento de salário de acordo com a seguinte tabela:
     - até 1 SM(inclusive): aumento de 20%
     - de 1 até 2 SM(inclusive): aumento de 15%
-        - de 2 até 5 SM(inclusive): aumento de 10%
-        - acima de 5 SM: aumento de 5%
-        Salário mínimo para referência: R$ 724,00
+    - de 2 até 5 SM(inclusive): aumento de 10%
+    - acima de 5 SM: aumento de 5%
+    Salário mínimo para referência: R$ 724,00
 
     Argumento:
         salarios (lista de floats): os salários originais.
@@ -299,6 +307,7 @@ def altera_salarios(salarios):
         else:
             novoSalarios.append(round(i * 1.05, 2))
     return novoSalarios
+
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
 acertos = 0
