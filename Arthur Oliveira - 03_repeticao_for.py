@@ -7,6 +7,9 @@
 # Utilizar "for i, item in enumerate(item) sempre que possível.
 
 
+from httplib2 import ProxiesUnavailableError
+
+
 def soma_das_temperaturas(lista):
     """Retorna a soma_das_temperaturas dos elementos de uma lista.
 
@@ -148,6 +151,14 @@ def maior_menor(lista):
     Retorna:
         uma tupla com dois números inteiros, o maior e o menor da lista.
     """
+    maior = lista[0]
+    menor = lista[0]
+    for i in lista:
+        if i > maior:
+            maior = i
+        elif i < menor:
+            menor = i
+    return maior, menor
 
 
 def dar_troco(valor_a_pagar, valor_em_dinheiro):
@@ -163,6 +174,15 @@ def dar_troco(valor_a_pagar, valor_em_dinheiro):
         o valor da nota e a quantidade daquela nota.
         Se a quantidade de notas for igual a zero, não deve aparecer na lista.
     """
+    notas = [50, 20, 10, 5, 2, 1]
+    totalDevolver = valor_em_dinheiro - valor_a_pagar
+    troco = []
+    for i in notas:
+        quantidade = totalDevolver // i
+        totalDevolver -= i * quantidade
+        if quantidade > 0:
+            troco.append((i, quantidade))
+    return troco
 
 
 def media_anual(temperaturas):
@@ -177,6 +197,12 @@ def media_anual(temperaturas):
         lista de inteiros: uma lista com o número correspondente ao mês em que a
         temperatura média foi maior que a temperatura média anual.
     """
+    mesesAcima = []
+    media = sum(temperaturas) / len(temperaturas)
+    for index, i in enumerate(temperaturas):
+        if i > media:
+            mesesAcima.append(index)
+    return mesesAcima
 
 
 def maiores_13(idades, alturas):
@@ -192,6 +218,12 @@ def maiores_13(idades, alturas):
     Retorna:
         uma lista de alturas dos alunos, conforme o criério definido.
     """
+    media = sum(alturas) / len(alturas)
+    lista = []
+    for index, i in enumerate(idades):
+        if i > 13 and alturas[index] < media:
+            lista.append(alturas[index])
+    return lista
 
 
 def testa_primo(valor):
@@ -203,6 +235,11 @@ def testa_primo(valor):
     Retorna:
         bool: True ou False, se o valor e ou não primo.
     """
+    dividiram = 0
+    for i in range(1, valor + 1):
+        if valor % i == 0:
+            dividiram += 1
+    return dividiram == 2
 
 
 def lista_de_primos(inicio, fim):
@@ -216,6 +253,11 @@ def lista_de_primos(inicio, fim):
     Retorna:
         lista de inteiros, os primos dentro do intervalo especificado.
     """
+    primos = []
+    for i in range(inicio, fim + 1):
+        if testa_primo(i):
+            primos.append(i)
+    return primos
 
 
 def fibonacci(n):
@@ -235,9 +277,9 @@ def altera_salarios(salarios):
     """Calcule o aumento de salário de acordo com a seguinte tabela:
     - até 1 SM(inclusive): aumento de 20%
     - de 1 até 2 SM(inclusive): aumento de 15%
-    - de 2 até 5 SM(inclusive): aumento de 10%
-    - acima de 5 SM: aumento de 5%
-    Salário mínimo para referência: R$ 724,00
+        - de 2 até 5 SM(inclusive): aumento de 10%
+        - acima de 5 SM: aumento de 5%
+        Salário mínimo para referência: R$ 724,00
 
     Argumento:
         salarios (lista de floats): os salários originais.
@@ -245,7 +287,18 @@ def altera_salarios(salarios):
     Retorna:
         uma lista de elementos float, correspondendo aos salários corrigidos.
     """
-
+    salarioMinimo = 724
+    novoSalarios = []
+    for i in salarios:
+        if i <= salarioMinimo:
+            novoSalarios.append(i * 1.2)
+        elif i <= salarioMinimo * 2:
+            novoSalarios.append(round(i * 1.15, 2))
+        elif i <= salarioMinimo * 5:
+            novoSalarios.append(round(i * 1.10, 2))
+        else:
+            novoSalarios.append(round(i * 1.05, 2))
+    return novoSalarios
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
 acertos = 0
