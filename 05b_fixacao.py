@@ -17,6 +17,7 @@ def comeco_ou_fim_6(nums):
     comeco_ou_fim_6([6, 1, 2, 3]) -> True
     comeco_ou_fim_6([3, 2, 1]) -> False
     """
+    return nums[0] == 6 or nums[-1] == 6
 
 
 def inicio_fim_igual(nums):
@@ -27,6 +28,7 @@ def inicio_fim_igual(nums):
     inicio_fim_igual([1, 2, 3, 1]) -> True
     inicio_fim_igual([1, 2, 1]) -> True
     """
+    return len(nums) > 0 and nums[0] == nums[-1]
 
 
 def extremidades_iguais(a, b):
@@ -38,6 +40,7 @@ def extremidades_iguais(a, b):
     extremidades_iguais([1, 2, 3], [7, 3, 2]) -> False
     extremidades_iguais([1, 2, 3], [1, 3]) -> True
     """
+    return a[0] == b[0] or a[-1] == b[-1]
 
 
 def maior_ponta(nums):
@@ -48,6 +51,13 @@ def maior_ponta(nums):
     maior_ponta([1, 2, 3]) -> [3, 3, 3]
     maior_ponta([1, 3, 2]) -> [2, 2, 2]
     """
+    novaLista = []
+    for i in nums:
+        if nums[0] > nums[-1]:
+            novaLista.append(nums[0])
+        else:
+            novaLista.append(nums[-1])
+    return novaLista
 
 
 def soma_2_primeiros(nums):
@@ -56,6 +66,7 @@ def soma_2_primeiros(nums):
     dois primeiros elementos.
     Se a lista tiver menos de dois elementos, soma o que for possível.
     """
+    return sum(nums[:2])
 
 
 def meio_do_caminho(a, b):
@@ -67,10 +78,15 @@ def meio_do_caminho(a, b):
     meio_do_caminho([7, 7, 7], [3, 8, 0]) -> [7, 8]
     meio_do_caminho([5, 2, 9], [1, 4, 5]) -> [2, 4]
     """
+    novaLista = []
+    novaLista.append(a[len(a)//2])
+    novaLista.append(b[len(b)//2])
+    return novaLista
 
 
 def numero_invertido(numero):
     """Receba um inteiro positivo e o mostre invertido. Ex.: 1234 gera 4321"""
+    return int(str(numero)[::-1])
 
 
 def gago(texto):
@@ -78,6 +94,11 @@ def gago(texto):
     gago("preciso tirar dez") -> "p-preciso t-tirar d-dez"
     gago("eu deveria ter estudado mais") -> "e-eu d-deveria t-ter e-estudado m-mais"
     """
+    lista = texto.split()
+    novoTexto = ''
+    for i in lista:
+        novoTexto += i[0]+"-"+i+" "
+    return novoTexto[:-1]
 
 
 def saudacao(nome, hora):
@@ -85,6 +106,12 @@ def saudacao(nome, hora):
     Entre 5 e 12: dia
     Entre 12 e 18: tarde
     Entre 18 e 5: noite"""
+    if hora >= 5 and hora < 12:
+        return f'Bom dia {nome}'
+    elif hora >= 12 and hora <= 18:
+        return f'Boa tarde {nome}'
+    else:
+        return f'Boa noite {nome}'
 
 
 def rosquinhas(n):

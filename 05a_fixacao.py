@@ -17,6 +17,7 @@ def dormir(dia_semana, feriado):
     você pode ficar dormindo quando é feriado ou não é dia semana
     retorne True ou False conforme você vá dormir ou não
     """
+    return dia_semana is False or feriado is True
 
 
 def alunos_problema(a_sorri, b_sorri):
@@ -26,6 +27,7 @@ def alunos_problema(a_sorri, b_sorri):
     temos problemas quando ambos estão sorrindo ou ambos não estão sorrindo
     retorne True quando houver problemas
     """
+    return a_sorri is True and b_sorri is True or a_sorri is False and b_sorri is False
 
 
 def soma_dobro(a, b):
@@ -35,6 +37,7 @@ def soma_dobro(a, b):
     soma_dobro(1, 2) -> 3
     soma_dobro(2, 2) -> 8
     """
+    return (a + b) * 2 if a == b else a + b
 
 
 def diff21(n):
@@ -45,6 +48,7 @@ def diff21(n):
     diff21(25) -> 8
     dica: abs(x) retorna o valor absoluto de x
     """
+    return (n - 21) *2 if n > 21 else 21 - n
 
 
 def papagaio(falando, hora):
@@ -53,6 +57,7 @@ def papagaio(falando, hora):
     hora é um parâmetro entre 0 e 23
     temos problemas se o papagaio estiver falando antes da 7 ou depois das 20
     """
+    return falando is True and hora < 7 or falando is True and hora > 20
 
 
 def dez(a, b):
@@ -60,6 +65,7 @@ def dez(a, b):
     dados dois inteiros a e b
     retorna True se um dos dois é 10 ou a soma é 10
     """
+    return a == 10 or b == 10 or a + b == 10
 
 
 def dista10(n):
@@ -71,6 +77,7 @@ def dista10(n):
     dista10(90) -> True
     dista10(89) -> False
     """
+    return abs(100 - n) <= 10 or abs(200 - n) <= 10
 
 
 def apaga(s, n):
@@ -80,6 +87,7 @@ def apaga(s, n):
     apaga('kitten', 1) -> 'ktten'
     apaga('kitten', 4) -> 'kittn'
     """
+    return s[:n] + s[n + 1:]
 
 
 def troca(s):
@@ -91,6 +99,7 @@ def troca(s):
     troca('a') -> 'a'
     troca('ab') -> 'ba'
     """
+    return s if len(s) <= 1 else s[-1] + s[1:-1] + s[0]
 
 
 def multi_string(s, n):
@@ -99,6 +108,7 @@ def multi_string(s, n):
     retorna uma string com n cópias da string original
     multi_string('Oi', 2) -> 'OiOi'
     """
+    return s * n
 
 
 def explode_string(s):
@@ -107,10 +117,15 @@ def explode_string(s):
     explode_string('abc') -> 'aababc'
     explode_string('ab') -> 'aab'
     """
+    novaS = ''
+    for index, i in enumerate(s):
+        novaS += s[:index]
+    return novaS + s
 
 
 def conta_noves(nums):
     """Conta quantas vezes aparece o 9 numa lista nums."""
+    return nums.count(9)
 
 
 def nove_na_frente(nums):
@@ -120,6 +135,7 @@ def nove_na_frente(nums):
     nove_na_frente([1, 2, 3, 4, 9]) -> False
     nove_na_frente([1, 2, 3, 4, 5]) -> False
     """
+    return 9 in nums[:4]
 
 
 def alo_nome(nome):
@@ -129,6 +145,7 @@ def alo_nome(nome):
     alo_nome('Alice') -> 'Alô Alice!'
     alo_nome('X') -> 'Alô X!'
     """
+    return f"Alô {nome}!"
 
 
 def cria_tags(tag, palavra):
@@ -137,6 +154,7 @@ def cria_tags(tag, palavra):
     cria_tags('i', 'Alô'), '<i>Alô</i>'
     cria_tags('cite', 'Uhul'), '<cite>Uhul</cite>'
     """
+    return f"<{tag}>{palavra}</{tag}>"
 
 
 def final_extra(s):
@@ -147,6 +165,7 @@ def final_extra(s):
     final_extra('ab'), 'ababab'
     final_extra('Oi'), 'OiOiOi'
     """
+    return s[-2:]*3
 
 
 def primeira_metade(s):
@@ -156,6 +175,7 @@ def primeira_metade(s):
     primeira_metade('Lula') -> 'Lu'
     primeira_metade('abcdef') -> 'abc'
     """
+    return s[:len(s) // 2]
 
 
 def sem_pontas(s):
@@ -166,6 +186,7 @@ def sem_pontas(s):
     sem_pontas('Python') -> 'ytho'
     sem_pontas('codigo') -> 'odig'
     """
+    return s[1:-1]
 
 
 def gira_esquerda_2(s):
@@ -175,6 +196,7 @@ def gira_esquerda_2(s):
     gira_esquerda_2('Beleza') -> 'lezaBe'
     gira_esquerda_2('Oi') -> 'Oi'
     """
+    return s[2:] + s[:2]
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
