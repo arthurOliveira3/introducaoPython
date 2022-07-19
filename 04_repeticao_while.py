@@ -6,6 +6,9 @@
 # Não utilize "for", métodos das estruturas de dados ou funções embutidas.
 
 
+from cmath import exp
+
+
 def quantidade_de_impares(valor_inicial, valor_final):
     """Determine a quantidade de números ímpares num intervalo.
 
@@ -16,7 +19,14 @@ def quantidade_de_impares(valor_inicial, valor_final):
     Retorna:
         int: a quantidade de números ímpares no intervalo.
     """
-
+    valor = valor_inicial + 1
+    contador = 0
+    while valor < valor_final:
+        if valor  % 2 != 0:
+            contador += 1
+        valor += 1
+    return contador
+    
 
 def soma_dos_inteiros(valor1, valor2):
     """Calcule a soma dos números inteiros no intervalo dado.
@@ -31,6 +41,17 @@ def soma_dos_inteiros(valor1, valor2):
     Retorna:
         float: a soma dos valores dentro do intervalo dado.
     """
+    soma = 0
+    inicio = valor1 + 1 
+    fim = valor2
+    if valor1 > valor2:
+        inicio = valor2 + 1 
+        fim = valor1
+
+    while inicio < fim:
+        soma += inicio
+        inicio += 1
+    return soma
 
 
 def potencia(base, expoente):
@@ -44,6 +65,14 @@ def potencia(base, expoente):
     Retorna:
         int: o resultado de base elevado ao expoente.
     """
+    soma = base
+    cont = 0
+    if expoente == 0:
+        return 1
+    while cont < expoente - 1:
+        soma *= base
+        cont += 1
+    return soma
 
 
 def crescimento_populacional(populacao1, populacao2, crescimento1, crescimento2):
@@ -59,6 +88,14 @@ def crescimento_populacional(populacao1, populacao2, crescimento1, crescimento2)
     Retorna:
         int: a quantidade de anos que levará para a população da cidade 1 utrapassar a população da cidade 2.
     """
+    contador = 0 
+    if crescimento1 <= crescimento2:
+        return 0 
+    while populacao1 < populacao2:
+        populacao1 += populacao1 * (crescimento1 / 100)
+        populacao2 += populacao2 * (crescimento2 / 100)
+        contador +=1 
+    return contador
 
 
 def fibonacci(n):
