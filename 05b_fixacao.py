@@ -10,6 +10,9 @@
 # raciocínio com problemas novos.
 
 
+from ast import NodeVisitor
+
+
 def comeco_ou_fim_6(nums):
     """
     Verifica se 6 é o primeiro ou último elemento da lista nums.
@@ -122,6 +125,7 @@ def rosquinhas(n):
     rosquinhas(5) -> '5 rosquinhas'
     rosquinhas(23) -> 'muitas rosquinhas'
     """
+    return f'{n} rosquinhas' if n< 10 else f'muitas rosquinhas'
 
 
 def pontas(s):
@@ -131,6 +135,7 @@ def pontas(s):
     Assim 'palmeiras' retorna 'paas'
     No entanto, se a string tiver menos que 2 letras, retorna uma string vazia
     """
+    return s[:2] + s[-2:] if len(s) > 2 else ''
 
 
 def fixa_primeiro(s):
@@ -140,6 +145,9 @@ def fixa_primeiro(s):
     Assim 'abacate' retorna 'ab*c*te'
     Dica: use s.replace(stra, strb)
     """
+    caracter = s[0]
+    s = s.replace(s[0], "*")
+    return caracter+s[1:]
 
 
 def nomes_pontas(n):
@@ -148,6 +156,8 @@ def nomes_pontas(n):
     maiúsculas.
     "Marco André Lopes Mendes" -> "MARCO MENDES"
     """
+    nomes = n.split()
+    return f"{nomes[0].upper()} {nomes[-1].upper()}"
 
 
 def nomes_pontas_e_iniciais_do_meio(n):
@@ -166,11 +176,13 @@ def mistura2(a, b):
       'mix', pod' -> 'pox mid'
       'dog', 'dinner' -> 'dig donner'
     """
+    return f'{b[:2]}{a[2:]} {a[:2]}{b[2:]}'
 
 
 def tres_maiusculas(texto):
     """Encontre a primeira ocorrência de 3 letras maiúsculas consecutivas
     no texto."""
+    return texto
 
 
 def im_pares_unicos(lista):
