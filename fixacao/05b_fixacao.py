@@ -10,7 +10,6 @@
 # raciocínio com problemas novos.
 
 
-from ast import NodeVisitor
 
 
 def comeco_ou_fim_6(nums):
@@ -182,7 +181,6 @@ def mistura2(a, b):
 def tres_maiusculas(texto):
     """Encontre a primeira ocorrência de 3 letras maiúsculas consecutivas
     no texto."""
-    return texto
 
 
 def im_pares_unicos(lista):
