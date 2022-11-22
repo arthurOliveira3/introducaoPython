@@ -7,6 +7,8 @@
 
 def nomes_com_menos_de_4_letras(lista):
     """ Use uma listcomp para gerar uma lista de homens com nomes de 4 ou menos letras."""
+    listaHomens = [x for x in lista if len(x) <= 4]
+    return listaHomens
 
 
 def lista_de_nomes_e_inicial(lista):
@@ -17,35 +19,47 @@ def lista_de_nomes_e_inicial(lista):
 
     [('M', 'Mariana'), ('A', 'Ana'), ('P', 'Paula')]
     """
+    listaIniciasNome = [(x[0], x) for x in lista]
+    return listaIniciasNome
 
 
 def iniciais_e_nomes_incompleto(lista):
     """Gere um dicionário associando iniciais aos nomes de homens."""
+    dicionarioIniciaisNome = {x[0]:x for x in lista}
+    return dicionarioIniciaisNome
 
 
 def mulher_homem(mulher, homem):
-    """4. Use a função zip para gerar uma lista associativa, e com ela carregar
+    """Use a função zip para gerar uma lista associativa, e com ela carregar
     um dicionário associando cada mulher a um homem. Quantos itens terá o
     dicionário assim produzido?"""
+    listaMulherHomem = {mulher: homem for (mulher, homem) in zip(mulher, homem)}
+    return listaMulherHomem
 
 
 def produto_cartesiano(homens, mulheres):
-    """5. Gere uma lista associativa para organizar uma aula de dança na qual
+    """Gere uma lista associativa para organizar uma aula de dança na qual
     todos devem dançar com todos. Quantos casais serão formados?
     Dica: o nome da operação a ser feita neste exercício é produto cartesiano,
     e para fazer isso em uma listcomp ou genexp você precisa usar mais de um
     for dentro da expressão."""
+    listaCasaisDanca = [(x, y) for x in homens for y in mulheres]
+    return listaCasaisDanca
 
 
 def produto_cartesiano_filtro(homens, mulheres):
-    """6. Repita o exercício 5, acrescentando um filtro com if para remover os
+    """Repita o exercício anterior, acrescentando um filtro com if para remover os
     nomes com menos de 4 letras das duas listas. Quantos casais serão formados?"""
+    listaCasaisDancaFiltro = [(x, y) for x in homens if len(x) >= 4 for y in mulheres if len(y) >= 4]
+    return listaCasaisDancaFiltro
 
 
 def pares_e_divisiveis_por_7(limite_inicial=1067, limite_final=3627):
     """Entre 1067 e 3627 (inclusive), quantos números são pares e
     também divisíveis por 7?
     """
+    paresDivisiveis7 = len([x for x in range(1067, 3628) if x % 2 == 0 and x % 7 == 0])
+    return paresDivisiveis7
 
 
 def duplica_caracter(s):
@@ -55,6 +69,8 @@ def duplica_caracter(s):
     duplica_caracter('AAbb') -> 'AAAAbbbb'
     duplica_caracter('Hi-There') -> 'HHii--TThheerree'
     """
+    duplicacao = ''.join([c*2 for c in s])
+    return duplicacao
 
 
 def conta_pares(nums):
@@ -64,6 +80,8 @@ def conta_pares(nums):
     conta_pares([2, 2, 0]) -> 3
     conta_pares([1, 3, 5]) -> 0
     """
+    pares = len([x for x in nums if x % 2 == 0])
+    return pares
 
 
 def gago(texto):
@@ -71,6 +89,8 @@ def gago(texto):
     gago("preciso tirar dez") -> "p-preciso t-tirar d-dez"
     gago("eu deveria ter estudado mais") -> "e-eu d-deveria t-ter e-estudado m-mais"
     """
+    textoGago = ' '.join([c[0] + "-" + c for c in texto.split()])
+    return textoGago
 
 
 def explode_string(s):
@@ -79,12 +99,16 @@ def explode_string(s):
     explode_string('abc') -> 'aababc'
     explode_string('ab') -> 'aab'
     """
+    explodida = ''.join([s[:index] for index in range(len(s) + 1)])
+    return explodida
 
 
 def intercalamento_listas(lista1, lista2):
     """Usando 'lista1' e 'lista2', ambas do mesmo comprimento,
     crie uma nova lista composta pelo
     intercalamento entre as duas."""
+    intercalada = [x for x in zip(lista1, lista2) for x in x]
+    return intercalada
 
 
 def numeros_sortudos(limite_inferior=1, limite_superior=100000):
@@ -96,6 +120,8 @@ def numeros_sortudos(limite_inferior=1, limite_superior=100000):
     Dica: faça uma função de validação e outra que a chama e
     verifica o intervalo dado
     """
+    sortudos = [n for n in range(limite_inferior, limite_superior) if "2" in str(n) and "7" not in str(n)]
+    return len(sortudos)
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
